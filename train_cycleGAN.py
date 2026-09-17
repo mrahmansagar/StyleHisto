@@ -1,3 +1,4 @@
+import os
 import argparse
 import keras
 from keras.optimizers import Adam
@@ -188,7 +189,11 @@ def parse_args():
                         type=str,
                         default="B",
                         help="Name for domain B")
-    
+
+    parser.add_argument("--output_dir",
+                        type=str, 
+                        default="./training_output", 
+                        help="Directory to save checkpoints and logs")
 
 
     return parser.parse_args()
@@ -202,6 +207,8 @@ def main():
 
     nameA2B = f"Gen_{args.DomainA_name}2{args.DomainB_name}"
     nameB2A = f"Gen_{args.DomainB_name}2{args.DomainA_name}"
+
+    output_dir = os.path.join(args.output_dir, args.run_name)    
 
     # Load the data from domain A and domain B directories
     domainA_data, domainB_data = load_data(
@@ -266,7 +273,7 @@ def main():
         batch_size = args.batch_size,
         epochs = args.epochs,
         summary_interval = args.summary_interval,
-        name = args.run_name,
+        name = output_dir,
         nameA2B = nameA2B,
         nameB2A = nameB2A
     )

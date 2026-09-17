@@ -1,3 +1,4 @@
+import os
 import argparse
 import keras
 from keras.optimizers import Adam
@@ -129,6 +130,10 @@ def parse_args():
                         default="pix2pix", 
                         help="Identifier prefix for checkpoints and logs")
 
+    parser.add_argument("--output_dir",
+                        type=str, 
+                        default="./training_output", 
+                        help="Directory to save checkpoints and logs")
     
 
     return parser.parse_args()
@@ -140,6 +145,9 @@ def main():
     target_size = None
     if args.img_height is not None and args.img_width is not None:
         target_size = (args.img_height, args.img_width)
+
+    output_dir = os.path.join(args.output_dir, args.run_name)
+    
 
     # 1. Load data
     src_data, tar_data = load_data(
@@ -191,7 +199,7 @@ def main():
         batch_size=args.batch_size,
         epochs=args.epochs,
         summary_interval=args.summary_interval,
-        name=args.run_name,
+        name=output_dir,
     )
 
 if __name__ == "__main__":
