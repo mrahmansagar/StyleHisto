@@ -32,6 +32,7 @@ StyleHisto/
 ├── train_pix2pix.py            # Training entry point for Pix2Pix
 ├── LICENSE                     # License file
 └── README.md                   # Project documentation
+└── requirments.txt             # Project dependency packages 
 ```
 
 ---
