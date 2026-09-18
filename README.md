@@ -6,9 +6,9 @@
 
 ## Features
 
-- **Generative Stain Translation**:
+- **Generative Style Transfromation**:
   - **Pix2Pix**: Supervised paired image-to-image translation.
-  - **CycleGAN**: Unsupervised unpaired stain-to-stain translation across histology domains.
+  - **CycleGAN**: Unsupervised unpaired image-to-image translation.
 - **Histology Image Registration**:
   - Elastic and affine registration pipelines for aligning stained tissue sections.
 ---
