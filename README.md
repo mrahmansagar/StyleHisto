@@ -70,8 +70,8 @@ source .venv/bin/activate
 #### Using Conda
 
 ```bash
-# Create a conda environment with Python 3.9
-conda create -n stylehisto python=3.9 -y
+# Create a conda environment with Python 3.10
+conda create -n stylehisto python=3.10 -y
 
 # Activate the environment
 conda activate stylehisto
